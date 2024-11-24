@@ -1,0 +1,12 @@
+server:
+  port: 9080
+
+logging:
+  level:
+    root: INFO
+  file:
+    name: src/main/resources/logs/application.log
+
+spring-doc:
+  swagger-ui:
+    path: /generate-service-docs
