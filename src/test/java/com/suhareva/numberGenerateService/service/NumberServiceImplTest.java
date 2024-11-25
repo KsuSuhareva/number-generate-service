@@ -19,16 +19,20 @@ public class NumberServiceImplTest {
     @InjectMocks
     private NumberServiceImpl numberServiceImpl;
     @Mock
+    private GenerateNumberService generateNumberService;
+    @Mock
     private NumberRepository repository;
 
     @Test
     public void generateNumber_shouldReturnNumber() {
+        Mockito.when(generateNumberService.generate()).thenReturn("2568620241124");
         Mockito.when(repository.save(any(Number.class))).thenReturn(true);
         assertEquals(13, numberServiceImpl.generateNumber().getNumber().length());
     }
 
     @Test
     public void generateNumber_throwDaoException() {
+        Mockito.when(generateNumberService.generate()).thenReturn("2568620241124");
         Mockito.when(repository.save(any(Number.class))).thenReturn(false);
         Assertions.assertThrows(DaoException.class, () -> numberServiceImpl.generateNumber());
     }

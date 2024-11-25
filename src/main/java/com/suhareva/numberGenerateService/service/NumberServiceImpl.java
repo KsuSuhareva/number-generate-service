@@ -10,10 +10,11 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class NumberServiceImpl implements NumberService {
     private final NumberRepository repository;
+    private final GenerateNumberService generateNumberService;
 
     @Override
     public Number generateNumber() {
-        Number number = new Number(GenerateNumberService.generate());
+        Number number = new Number(generateNumberService.generate());
         if (!repository.save(number)) {
             throw new DaoException("Number not save");
         }

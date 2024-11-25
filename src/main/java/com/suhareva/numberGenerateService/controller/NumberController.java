@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
         description = "Контроллер для работы с номером/уникальным идентификатором")
 public class NumberController {
     private final NumberService service;
+
+    @GetMapping(value = "/hello-docker", produces = "application/json")
+    public String helloDocker() {
+        return "Hello Docker";
+    }
 
     @PostMapping(value = "/generateNumber", produces = "application/json")
     @Operation(summary = "Возвращает сгенерированный номер", description = "Возвращает уникальный номер (идентификатор)")

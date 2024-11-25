@@ -13,11 +13,12 @@ public class SwaggerConfiguration {
         return new OpenAPI()
                 .info(new Info()
                         .title("Order-number-service")
+                        .description("Сервис генерации уникальных идентификаторов")
                         .version("1.0.0")
                         .contact(new Contact()
                                 .email("suharevaksu86@gmail.com")
-                                .url("https://github.com/KsuSuhareva")
-                                .name("Kseniya Suhareva")
+                                .url("https://github.com/KsuSuhareva/number-generate-service")
+                                .name("Ксения Сухарева")
                         )
                 );
     }

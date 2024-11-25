@@ -4,11 +4,15 @@ services:
      build:
        context: .
      ports:
-       - 7080:7080
-     container_name: generateNumService
-     depends_on:
-       - redis1
-   redis1:
-      image: "redis:latest"
-      ports:
-       - 6379:6379
+       - 9080:9080
+     container_name: generateService
+     links:
+      - redis
+   redis:
+     image: redis
+     ports:
+       - "6379:6379"
+     environment:
+       - REDIS_PASSWORD=my-password
+       - REDIS_PORT=6379
+       - REDIS_DATABASES=16
